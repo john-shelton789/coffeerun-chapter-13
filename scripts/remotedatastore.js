@@ -32,10 +32,26 @@
   };
 
   RemoteDataStore.prototype.remove = function(key) {
+    var IDArray = [];
 
-    $.ajax(this.serverUrl + '/' + '"emailAddress"=' + key, {
-      type: 'DELETE'
+    //get the IDs of every item in the array with the email of the person ordering
+    $.get(this.serverUrl + '? {"emailAddress": + key}', function(serverResponse) {
+      console.log(serverResponse);
+      serverResponse.forEach(function(element) {
+        IDArray.push(element.id);
+        console.log("ID is set to " + element.id);
+      })
+      //delete the entries when the order is delivered
+      IDArray.forEach(function(element) {
+        $.ajax('http://localhost:2403/coffeeorders' + '/' + element, {
+          type: 'DELETE'
+        });
+      })
     });
+
+
+
+
   };
 
   App.RemoteDataStore = RemoteDataStore;

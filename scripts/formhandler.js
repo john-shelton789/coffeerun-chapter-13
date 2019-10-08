@@ -66,16 +66,16 @@
         //window.close();
       } else {  //else commented out due to if being commented out, end of Modal stuff.  Removed modal stuff because not in this assignment.
         */
-        var data = {};
-        $(this).serializeArray().forEach(function(item) {
-          data[item.name] = item.value;
-          console.log(item.name + ' is ' + item.value);
-        });
-        console.log(data);
-        fn(data);
-        this.reset();
-        this.elements[0].focus();
-        //window.open("payment-form.html", 'popUpWindow', 'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+      var data = {};
+      $(this).serializeArray().forEach(function(item) {
+        data[item.name] = item.value;
+        console.log(item.name + ' is ' + item.value);
+      });
+      console.log(data);
+      fn(data);
+      this.reset();
+      this.elements[0].focus();
+      //window.open("payment-form.html", 'popUpWindow', 'height=500,width=500,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
       //} //end of else block that was commented out
     });
   };

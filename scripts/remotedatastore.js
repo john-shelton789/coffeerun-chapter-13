@@ -35,7 +35,7 @@
     var IDArray = [];
 
     //get the IDs of every item in the array with the email of the person ordering
-    $.get(this.serverUrl + '? {"emailAddress": + key}', function(serverResponse) {
+    $.get(this.serverUrl + '?emailAddress=' + key, function(serverResponse) {
       console.log(serverResponse);
       serverResponse.forEach(function(element) {
         IDArray.push(element.id);
